@@ -17,40 +17,14 @@
 
 [![样式中心](https://z3.ax1x.com/2021/06/22/Reto9K.png)](https://imgtu.com/i/Reto9K)
 
-2. 自定义一个 ifame 插入 鼠标放上去 具有 修改和删除
+2. 自定义一个 ifame类型的扩展 插入 鼠标放上去 具有 修改和删除
 
 [![ReNsUI.png](https://z3.ax1x.com/2021/06/22/ReNsUI.png)](https://imgtu.com/i/ReNsUI)
 
-子ifame调用父窗口 事件 
+html 文件 我放在 `_examples/ifame_hello.html` 把他复制到 编译目录就能调试了 `dist/utf8-php` 
 
-### 2.1 传入自定义的参数
+子ifame 通过调用父窗口编辑器 注册事件 等等 
 
-编辑器有很多可自定义的参数项，在实例化的时候可以传入给编辑器：
-```javascript
-var ue = UE.getEditor('container', {
-    autoHeight: false
-});
-```
-
-配置项也可以通过ueditor.config.js文件修改，具体的配置方法请看[前端配置项说明](http://fex.baidu.com/ueditor/#start-config1.4 前端配置项说明.md)
-
-### 2.2 设置和读取编辑器的内容
-
-通getContent和setContent方法可以设置和读取编辑器的内容
-```javascript
-var ue = UE.getEditor();
-//对编辑器的操作最好在编辑器ready之后再做
-ue.ready(function(){
-    //设置编辑器的内容
-    ue.setContent('hello');
-    //获取html内容，返回: <p>hello</p>
-    var html = ue.getContent();
-    //获取纯文本内容，返回: hello
-    var txt = ue.getContentTxt();
-});
-```
-
-ueditor的更多API请看[API 文档](http://ueditor.baidu.com/doc "ueditor API 文档")
 
 ### 1.6 dev-1.5.0 版本二次开发自定义插件注意事项
 
