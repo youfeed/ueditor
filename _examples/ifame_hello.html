@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{padding: 0;margin: 0;}
+        .main{cursor: pointer;position: relative; background-color: #fdfdfd; border: 1px solid #e7e7eb;z-index: 999;}
+        .hd{position: relative; padding-bottom: 56.25%; overflow: hidden; width: auto; height: auto; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat; background-color: #f6f8f9;}
+        .center{width: 85%; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%); text-align: center;}
+        .mask{display: none;position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7)!important; cursor: pointer; color: #fff;text-align: center;}
+        .main:hover .mask{display: block;}
+        .masks{display: flex; justify-content: center; align-items: center; max-width: 100%; height: 100%;}
+    </style>
+</head>
+<body onmouseup="ifame_mouseup();">
+    <div class="main">
+        <div class="hd">
+            <div class="center">
+                <p>我是一个ifame子窗口</p>
+                <p>父窗口传来的参数</p>
+            </div>
+        </div>
+        <div class="mask">
+            <div class="masks">
+                <button onclick="triggrt('Editor_video_change')">修改</button>
+                <button onclick="triggrt('Editor_video_delete')">删除</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var x = window.parent.getElementsByTagName
+    
+    console.log(x)
+// 这是 子窗口对父窗口传递 mouseup 事件
+function ifame_mouseup(){
+    !!window.parent.parent.window.__editorIframeMouseup && (window.parent.parent.window.__editorIframeMouseup(window));
+}
+
+// 向父窗口传递 修改 删除事件 Editor_video_change Editor_video_delete
+function triggrt(e){
+    if(!window.parent.parent.window) return;
+    var event = window.parent.parent.window.document.createEvent('Event');
+    event.initEvent(e, true, true);
+    event.adId = location.hash ? location.hash.slice(1) : '';
+    window.parent.parent.window.document.dispatchEvent(event);
+    console.log(e)
+}
+</script>
+</html>
