@@ -9,18 +9,53 @@
     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
     <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
     <script type="text/javascript" charset="utf-8" src="../lang/zh-cn/zh-cn.js"></script>
-
+    <!-- 自定义css -->
     <style type="text/css">
-        div{
-            width:100%;
+        /* iframe{
+            width: 301px!important;
+            border: 0;
+            background-color: none;
+        } */
+        .video_iframe{
+            width: 100%!important;
+            height: 378px;
+            margin: 14px 0;
+            z-index: 9999;
+            position: relative;
+            display: block;
         }
     </style>
 </head>
 <body>
 <div>
-    <h1>完整demo</h1>
+    <h1>YouFeed 二次开发</h1>
+
+    <script id="toolbar" type="text/plain" style="width:1024px;height:500px;"></script>
+    <script id="asiad" type="text/plain" style="width:1024px;height:500px;"></script>
     <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
 </div>
+<div id="btns">
+    <button onclick="addiframe()">添加 ifame_demo (将_examples/ifame_demo.html 复制到当前目录下)</button>
+    <button onclick="addyoufeed()" id="youfeed">
+        <section data-class="_youFeed" class="_youFeed" >
+            <section data-class="_youFeed" class="_youFeed">
+                <section style="padding: 25px 0 15px;text-align: center;">
+                    <p style="background: url(&quot;http://127.0.0.1:8080/themes/default/images/spacer.gif&quot;) center bottom / cover no-repeat rgb(248, 202, 109); font-size: 18px; color: rgb(112, 65, 17); display: inline-block; padding: 8px 25px; line-height: 24px; border-radius: 4px; margin: 0px auto;" data-background="http://shenzan.com/ueditor/php/upload/image/20200806/1596703511843480.gif">
+                        样式中心
+                    </p>
+                </section>
+            </section>
+        </section>
+    </button>
+
+    已知问题 插入的iframe 不是扩展 走了 默认 iframe扩展；<br>
+    插入的样式 section 会过滤 style
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div id="btns">
     <div>
         <button onclick="getAllHtml()">获得整个html的内容</button>
@@ -33,7 +68,6 @@
         <button onclick="setFocus()">使编辑器获得焦点</button>
         <button onmousedown="isFocus(event)">编辑器是否获得焦点</button>
         <button onmousedown="setblur(event)" >编辑器失去焦点</button>
-
     </div>
     <div>
         <button onclick="getText()">获得当前选中的文本</button>
@@ -64,6 +98,17 @@
     //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
     var ue = UE.getEditor('editor');
 
+    function addiframe(e){
+        UE.getEditor('editor').execCommand('insertHtml', '<iframe src="./ifame_hello.html" data-id="333"></iframe>')
+    }
+
+    function addyoufeed(e){
+        var style = document.getElementById('youfeed')
+        console.log(style)
+        UE.getEditor('editor').execCommand('insertHtml', style.innerHTML)
+    }
+
+    
 
     function isFocus(e){
         alert(UE.getEditor('editor').isFocus());
