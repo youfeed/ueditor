@@ -12,11 +12,12 @@
 ### 1.2 为了保证代码简洁 html文件为`/_examples/completeDemo.html`
 修改HTML后 或者调整完js代码后 执行`grunt default` 会编译到 `dist`下的,浏览器刷新即可
 
-### 1.3 在浏览器打开demo.html
-
-如果看到了下面这样的编辑器，恭喜你，初次部署成功！
-
-![部署成功](http://fex.baidu.com/ueditor/doc/images/demo.png)
+### 1.3 二次需要开发的二点
+1. 删除 清除样式 前后空行 复制样式 颜色修改
+![样式中心](https://imgtu.com/i/Reto9K)
+2. 自定义一个 ifame 插入 鼠标放上去 具有 修改和删除
+[![ReNsUI.png](https://z3.ax1x.com/2021/06/22/ReNsUI.png)](https://imgtu.com/i/ReNsUI)
+子ifame调用父窗口 
 
 ### 2.1 传入自定义的参数
 
