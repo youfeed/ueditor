@@ -5,32 +5,12 @@
 
 1. `git clone ` 仓库
 2. `npm install` 安装依赖（如果没有安装 grunt , 请先在全局安装 grunt）
-3. 在终端执行 `grunt default`
+3. 在终端执行 `grunt default` 即可编译
+4. `cd dist/utf8-php`目录 执行 `http-server` (先安装http服务`npm install --global http-server` 全局) 
+5. 访问 ` http://127.0.0.1:8080` 即可本地预览
 
-### 1.2 创建demo文件
-解压下载的包，在解压后的目录创建demo.html文件，填入下面的html代码
-
-```html
-<!DOCTYPE HTML>
-<html lang="en-US">
-<head>
-	<meta charset="UTF-8">
-	<title>ueditor demo</title>
-</head>
-<body>
-	<!-- 加载编辑器的容器 -->
-	<script id="container" name="content" type="text/plain">这里写你的初始化内容</script>
-	<!-- 配置文件 -->
-	<script type="text/javascript" src="ueditor.config.js"></script>
-	<!-- 编辑器源码文件 -->
-	<script type="text/javascript" src="ueditor.all.js"></script>
-	<!-- 实例化编辑器 -->
-	<script type="text/javascript">
-	    var ue = UE.getEditor('container');
-	</script>
-</body>
-</html>
-```
+### 1.2 为了保证代码简洁 html文件为`/_examples/completeDemo.html`
+修改HTML后 或者调整完js代码后 执行`grunt default` 会编译到 `dist`下的,浏览器刷新即可
 
 ### 1.3 在浏览器打开demo.html
 
@@ -38,7 +18,7 @@
 
 ![部署成功](http://fex.baidu.com/ueditor/doc/images/demo.png)
 
-### 1.4 传入自定义的参数
+### 2.1 传入自定义的参数
 
 编辑器有很多可自定义的参数项，在实例化的时候可以传入给编辑器：
 ```javascript
@@ -49,7 +29,7 @@ var ue = UE.getEditor('container', {
 
 配置项也可以通过ueditor.config.js文件修改，具体的配置方法请看[前端配置项说明](http://fex.baidu.com/ueditor/#start-config1.4 前端配置项说明.md)
 
-### 1.5 设置和读取编辑器的内容
+### 2.2 设置和读取编辑器的内容
 
 通getContent和setContent方法可以设置和读取编辑器的内容
 ```javascript
