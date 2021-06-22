@@ -14,7 +14,7 @@
 
 ### 1.3 二次需要开发的二点
 1. 删除 清除样式 前后空行 复制样式 颜色修改
-[![样式中心]](https://imgtu.com/i/Reto9K)
+[![样式中心](https://z3.ax1x.com/2021/06/22/Reto9K.png)](https://imgtu.com/i/Reto9K)
 2. 自定义一个 ifame 插入 鼠标放上去 具有 修改和删除
 [![ReNsUI.png](https://z3.ax1x.com/2021/06/22/ReNsUI.png)](https://imgtu.com/i/ReNsUI)
 子ifame调用父窗口 
